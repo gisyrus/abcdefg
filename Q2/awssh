@@ -1,0 +1,6 @@
+#!/bin/bash
+
+python3 boto3.py > ip.txt
+export AWS_PUBLICIP=$(cat ip.txt)
+echo $AWS_PUBLICIP
+ssh ubuntu@$AWS_PUBLICIP || echo "Host not found"
